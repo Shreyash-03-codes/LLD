@@ -32,7 +32,7 @@ The collection form is where the verbs do the standard work. Get the whole set, 
 GET    /orders          -> list the orders
 POST   /orders          -> create a new order
 GET    /orders/{id}     -> fetch one order
-PUT    /orders/{id}     -> replace one order (or the field you update)
+PUT    /orders/{id}     -> replace one order with the full body
 DELETE /orders/{id}     -> remove one order
 ```
 

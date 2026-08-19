@@ -47,7 +47,7 @@ Two more rules for the writer. Write for the reviewer who has not lived in your 
 
 ## Real Production Usage
 
-The most famous design document in the industry is the RFC, the Request for Comments, the format the Linux kernel community and the Apache projects and countless teams use for exactly this purpose. An RFC is a design document with a review discipline attached: proposals go out, the community comments on the reasoning, the author revises, and the document either gets adopted with its decisions recorded or it dies. The point of the format is not the template, it is that the decision and its context are reviewed in public and kept as history.
+The most famous design document in the industry is the RFC, the Request for Comments, the format the IETF and the Apache projects and countless teams use for exactly this purpose. An RFC is a design document with a review discipline attached: proposals go out, the community comments on the reasoning, the author revises, and the document either gets adopted with its decisions recorded or it dies. The point of the format is not the template, it is that the decision and its context are reviewed in public and kept as history.
 
 Inside a company, the pattern usually appears as the ADR, the Architecture Decision Record. An ADR is a short document that records one decision: the context, the decision, and the consequence. Its whole value is that it is cheap, so it actually gets written, and one decision per document, so the record stays searchable. If you keep nothing else, keep the ADR shape: a decision with its reason, dated and owned.
 

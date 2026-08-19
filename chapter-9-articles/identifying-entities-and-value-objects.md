@@ -141,7 +141,7 @@ Left column, the same order id across two states is still one entity, equal by i
 
 ## Real Production Usage
 
-Java's own libraries are the closest thing to a domain-model best practice on display. `java.time` models `LocalDate`, `Duration`, and `Amount` as immutable value objects with structural equality, and `Money` is the same idea in the domain layer. `BigDecimal` is the canonical value object. When the JDK ships a whole API where every value is immutable and equality is by content, that is the convention to copy.
+Java's own libraries are the closest thing to a domain-model best practice on display. `java.time` models `LocalDate`, `Duration`, and `Period` as immutable value objects with structural equality, and `Money` is the same idea in the domain layer. `BigDecimal` is the canonical value object. When the JDK ships a whole API where every value is immutable and equality is by content, that is the convention to copy.
 
 Spring Data JPA supports the split directly: a `@Embeddable` value object is stored as columns on the owning table instead of a table of its own, which is exactly the persistence decision this article argues for. The `@Entity` classes are the entities, and the embeddables are the value objects, and a mature codebase keeps the two visibly different at the schema level.
 

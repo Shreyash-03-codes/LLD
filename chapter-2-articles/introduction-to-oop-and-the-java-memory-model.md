@@ -22,7 +22,7 @@ The failure is concrete. A team debugs a race for a week. The field is mutable a
 
 Start with the two regions where your program's data lives.
 
-The stack is per-thread, fast, and tiny. Every time a method is called, the JVM pushes a frame onto the thread's stack. The frame holds the method's local variables and bookkeeping. When the method returns, the frame is popped and its contents are gone. Stack storage is allocated by moving a pointer and freed by moving it back. Nothing is ever allocated on the stack in Java except primitives and references that are local to a method.
+The stack is per-thread, fast, and tiny. Every time a method is called, the JVM pushes a frame onto the thread's stack. The frame holds the method's local variables and bookkeeping. When the method returns, the frame is popped and its contents are gone. Stack storage is allocated by moving a pointer and freed by moving it back. Under the base model, primitives and references that are local to a method are stored on the stack, and object data lives on the heap; the escape analysis section below is the one place the JVM breaks that rule.
 
 The heap is shared by all threads, slower, and large. Every object created with `new` lives there. Objects in the heap are not freed by the programmer. The garbage collector reclaims them when nothing references them anymore. A reference is a handle, a pointer in disguise, that tells the JVM where in the heap the object lives.
 

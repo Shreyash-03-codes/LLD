@@ -14,7 +14,7 @@ That framing is the whole mistake. Persistence design is a set of deliberate dec
 
 ## Problem Statement
 
-Concrete failure: a team builds a service with an anemic `saveOrder(Order order)` method backed by a single generic JPA repository they wrote on day two. The application grows. Now a `Order` must be written only if a nested `LineItem` sum matches the total, only when the user isn't in a throttled state, and only in a way that doesn't clobber a concurrent refund. The team's answer to each new constraint is another raw query or another if-statement in the controller. Six months later the persistence layer is a pile of scattered conditionals, and nobody on the team can say whether a write is atomic, consistent, or even going to the same database.
+Concrete failure: a team builds a service with an anemic `saveOrder(Order order)` method backed by a single generic JPA repository they wrote on day two. The application grows. Now an `Order` must be written only if a nested `LineItem` sum matches the total, only when the user isn't in a throttled state, and only in a way that doesn't clobber a concurrent refund. The team's answer to each new constraint is another raw query or another if-statement in the controller. Six months later the persistence layer is a pile of scattered conditionals, and nobody on the team can say whether a write is atomic, consistent, or even going to the same database.
 
 That pile is the symptom of never deciding what persistence is supposed to do. The saving itself was correct; the design around it was absent.
 

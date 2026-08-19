@@ -24,7 +24,7 @@ The developers that remain end up in one of two places. Either they never change
 
 The best versioning is barely needing it. A great many changes are additive: an optional new field, a new endpoint, a new value in an existing enumeration. None of these break a caller on the old shape, so a single version keeps serving everyone for a long time. The rule is additive first: if the change can be expressed by adding an optional field, ship it in the current version.
 
-The line you cross is when a field must change meaning, or the old shape has to disappear. That is where the new version buys its keep. But most of the growth should happen on the additive side, and the versioning date should be rare.
+The line you cross is when a field must change meaning, or the old shape has to disappear. That is where the new version buys its keep. But most of the growth should happen on the additive side, and the versioning event should be rare.
 
 ### Where the version rides
 

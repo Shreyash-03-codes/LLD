@@ -66,7 +66,7 @@ A method that can fail with a checked exception cannot be a `Runnable`, because 
 
 ## Real Production Usage
 
-This is the most real part of the article. Spring `@Async` returns a `Future` or `CompletableFuture`. Kafka consumers run a `Runnable` in a loop on one thread, and produce results through a `KafkaTemplate`. Every `ExecutorService` in java.util.concurrent accepts all three, submit unifying Runnable and Callable under a `Future`. The names the framework authors chose tell you the rule: `execute()` takes `Runnable` only; `submit()` maybe, for both. When you want a value, the API is `Callable` and `Future`, not a shared field.
+This is the most real part of the article. Spring `@Async` returns a `Future` or `CompletableFuture`. Kafka consumers run a `Runnable` in a loop on one thread, and produce results through a `KafkaTemplate`. Every `ExecutorService` in java.util.concurrent accepts all three, submit unifying Runnable and Callable under a `Future`. The names the framework authors chose tell you the rule: `execute()` takes `Runnable` only; `submit()` takes both. When you want a value, the API is `Callable` and `Future`, not a shared field.
 
 ## Common Mistakes
 

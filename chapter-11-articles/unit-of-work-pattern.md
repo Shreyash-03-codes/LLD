@@ -39,7 +39,7 @@ public void adjustInvoice(Long invoiceId, Long customerId) {
 }
 ```
 
-The `flush()` her is the single point where tracked changes become SQL before commit, and it is there if you genuinely need a row's generated value before a later statement. If you do not need that, let the flush happen at commit and reap the batching. Forcing flushes is the classic way to kill a transaction's batching and scatter writes that could have been one batch.
+The `flush()` here is the single point where tracked changes become SQL before commit, and it is there if you genuinely need a row's generated value before a later statement. If you do not need that, let the flush happen at commit and reap the batching. Forcing flushes is the classic way to kill a transaction's batching and scatter writes that could have been one batch.
 
 ### Flush, commit, and the real boundary
 

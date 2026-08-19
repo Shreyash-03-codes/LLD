@@ -34,7 +34,7 @@ An external API is the inverse. Its consumers are outside and you do not deploy 
 
 The two columns:
 
-| Besides | Internal | External |
+| Aspect | Internal | External |
 |---------|----------|----------|
 | Stability | changes often | long-lived |
 | Auth | service key | scoped token |

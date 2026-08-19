@@ -20,7 +20,7 @@ The heart is `ThreadPoolExecutor`, and you build one with three dials plus a que
 
 - `corePoolSize`: the number of threads kept alive even when idle.
 - `maxPoolSize`: the most threads allowed at once.
-- keep the queue: where submitted work sits when every thread is busy.
+- `workQueue`: where submitted work sits when every thread is busy.
 
 There is one fact that unlocks reading a `ThreadPoolExecutor`: the interplay of the queue. If the queue is unbounded, the executor never goes above `corePoolSize` no matter how high you set the max, because extra threads only appear when the queue is full and it never is. That is why a `LinkedBlockingQueue` with a huge max is still a fixed pool, and a `SynchronousQueue`, which does not buffer at all, is why the pool goes straight to `maxPoolSize` when the threads are busy. Read those two together.
 

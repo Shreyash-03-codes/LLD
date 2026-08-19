@@ -40,7 +40,7 @@ Two details tie it together. `wait()` releases the monitor while it parks and re
 
 ## Real Production Usage
 
-Wait and notify are the block that a `BlockingQueue` hides. A `take()` is the wait and a `put()` is the notify, and the JDK wraps all the precisely. Production code rarely writes the handshake by hand, because the brittle parts named above are exactly what the higher abstractions absorb, and a `ReentrantLock` `Condition` gives you named, separate wait sets when you need more than one. The low-level pair stays as the clock and the primitive, but a service thread rarely sits on it today. The lesson is to know the handshake and then use the layer above.
+Wait and notify are the block that a `BlockingQueue` hides. A `take()` is the wait and a `put()` is the notify, and the JDK wraps all of this precisely. Production code rarely writes the handshake by hand, because the brittle parts named above are exactly what the higher abstractions absorb, and a `ReentrantLock` `Condition` gives you named, separate wait sets when you need more than one. The low-level pair stays as the clock and the primitive, but a service thread rarely sits on it today. The lesson is to know the handshake and then use the layer above.
 
 ## Common Mistakes
 

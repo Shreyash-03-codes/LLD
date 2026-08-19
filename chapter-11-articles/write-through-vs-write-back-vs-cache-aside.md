@@ -20,7 +20,7 @@ The three policies differ on what happens at write time.
 
 | Policy | Write does | Read that misses | Divergence window | Main risk |
 |--------|-----------|------------------|-------------------|-----------|
-| Write-through | writes DB, then cache | both, cache only | none on the write | write latency, still stale on others |
+| Write-through | writes DB, then cache | fill from DB | none on the write | write latency, still stale on others |
 | Write-back | writes cache, flushes DB later | cache or DB | between flush and write | data loss on crash before flush |
 | Cache-aside | writes DB, invalidates cache | fill from DB | brief | race between write and refill |
 

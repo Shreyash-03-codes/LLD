@@ -20,7 +20,7 @@ The process of mitigating it by hand, "did this request already happen?", cannot
 
 ### Safe, idempotent, neither
 
-The first step is vocabulary. A safe method has no side effect at all, it never changes server state, so repeating it is harmless. GET is safe, and a safe method is always idempotent. An idempotent method can be repeated with the same effect as a single call: the first call creates, and every subsequent identical call is the equivalent of the first. `PUT` and `DELETE` are naturally idempotent, setting a value twice leaves the same value, and a delete of an already-deleted resource is a no-op. `POST` is not, that is the sequence this by default.
+The first step is vocabulary. A safe method has no side effect at all, it never changes server state, so repeating it is harmless. GET is safe, and a safe method is always idempotent. An idempotent method can be repeated with the same effect as a single call: the first call creates, and every subsequent identical call is the equivalent of the first. `PUT` and `DELETE` are naturally idempotent, setting a value twice leaves the same value, and a delete of an already-deleted resource is a no-op. `POST` is not, and that is the subject of this article.
 
 So, in plain terms:
 

@@ -173,7 +173,7 @@ There is a caution worth stating. Bridge adds a level of indirection to every ca
 
 The JVM's most famous bridge is `java.sql.DriverManager` and the JDBC driver contract. The abstraction is the `Connection`, `Statement`, and `ResultSet` interfaces, fixed by the JDK, and the implementation is whatever the database vendor's driver provides. Your code writes to the abstraction, and the driver changes underneath without your code noticing. That is Bridge with the abstraction and implementation sold separately, which is exactly what happens when a spec body fixes one side and vendors compete on the other.
 
-SLF4J is the same shape for logging: the API hierarchy (`Logger`, `MDC`) is the abstraction, and each backend binding is the implementation. Spring's `PlatformTransactionManager` interface with `DataSourceTransactionManager`, `JpaTransactionManager`, and `JmsTransactionManager` implementations is a bridge between the abstraction of "a transaction" and the reality of where the transaction lives. In each case the pattern is recognizable by the same signature: one interface your code depends on, several implementations you never name, and no inheritance between the two sides.
+The logging world shows why the boundary blurs. SLF4J is usually called a facade, and its backends adapters, but the shape is the same one this article draws: an API your code depends on, several implementations you never name, and no inheritance between the two sides. Read it either way and the lesson is identical. Spring's `PlatformTransactionManager` interface with `DataSourceTransactionManager`, `JpaTransactionManager`, and `JmsTransactionManager` implementations is a bridge between the abstraction of "a transaction" and the reality of where the transaction lives. In each case the pattern is recognizable by the same signature: one interface your code depends on, several implementations you never name, and no inheritance between the two sides.
 
 ## Common Mistakes
 
@@ -206,7 +206,7 @@ Common follow-ups:
 - The inheritance explosion is the diagnostic: class names that glue two concepts together are a missing bridge.
 - Bridge is proactive, Adapter is reactive, and that timing test is the whole distinction.
 - Each new value of either dimension costs one class with a bridge, not one class per combination.
-- JDBC drivers and SLF4J are Bridge at industrial scale, one fixed abstraction and many hidden implementations.
+- JDBC drivers are Bridge at industrial scale, one fixed abstraction and many hidden implementations.
 
 ## What's Next
 

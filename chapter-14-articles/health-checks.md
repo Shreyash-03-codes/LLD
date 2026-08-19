@@ -115,7 +115,7 @@ The question is "liveness and readiness, what's the difference, and how do you w
 ## Knowledge Check
 
 1. Your liveness probe performs the same DB query as readiness. Pick a moment when both endpoints have an outage and describe the difference in what the orchestrator does, and the cascading state after.
-2. A new instance's startup takes 60 seconds of warmup. What happens if there's no initial delay on readiness and no warm flag, and describe the two ways this is a signing move.
+2. A new instance's startup takes 60 seconds of warmup. What happens if there's no initial delay on readiness and no warm flag, and describe the two ways this is a failing move.
 3. Where does the health check's check itself belong in the "saturation" story: explain the difference between a readiness check, a metric that looks distressed and rolling.
 
 ## Key Takeaways

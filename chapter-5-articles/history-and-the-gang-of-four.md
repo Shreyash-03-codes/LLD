@@ -44,7 +44,7 @@ button.addActionListener(new ActionListener() {
 button.addActionListener(e -> handler.handle(e));
 ```
 
-Both snippets are the Observer pattern. The first writes the anonymous class by hand, the second lets the lambda do it. The pattern did not disappear, the ceremony did. That is the pattern of the pattern: the idea survives, the machinery gets absorbed. The JDK did the same to `Decorator` in the I/O classes, to `Iterator` as a language idiom in the enhanced for loop, to `Factory` in `Collections.of(...)` and the stream collectors.
+Both snippets are the Observer pattern. The first writes the anonymous class by hand, the second lets the lambda do it. The pattern did not disappear, the ceremony did. That is the pattern of the pattern: the idea survives, the machinery gets absorbed. The JDK did the same to `Decorator` in the I/O classes, to `Iterator` as a language idiom in the enhanced for loop, to `Factory` in the `List.of`/`Set.of`/`Map.of` factories and the stream collectors.
 
 The criticism of the book followed from the absorption. By the 2000s, a backlash argued that patterns were a sign that the language was too weak, that languages with closures and higher-order functions dissolved the patterns into syntax. The claim is half right. Some patterns, Observer, Strategy, Command, did dissolve into language features or into frameworks. Others, Singleton, were always questionable and got worse. But the structural patterns, Adapter, Facade, Proxy, Decorator, and the creational ones, Factory, Builder, Prototype, did not dissolve, because they solve composition problems that no syntax removes. The book's core idea, name the recurring shape, survived every wave of criticism because it is not a language feature, it is a way of thinking.
 

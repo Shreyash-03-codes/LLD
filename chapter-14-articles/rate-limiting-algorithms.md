@@ -20,7 +20,7 @@ All rate limiting is state, either per client or global, and a window of time ov
 
 ### Token bucket
 
-The bucket holds up to `burst` tokens and fills at `rate` tokens per second. A request spends one token; if the bucket is empty the request waits or is dropped. The two dials are capacity (burst size) and fill rate (sustained rate). A client with a full bucket can fire a burst of up to `burst` at once, then settle into `rate` per second. This is the most popular shape because the two dials decouple "how hard may they spike" from "what may they sustain," and because it smooths drift gracefully; a short burst is soaked without a newly-window boundary cliff.
+The bucket holds up to `burst` tokens and fills at `rate` tokens per second. A request spends one token; if the bucket is empty the request waits or is dropped. The two dials are capacity (burst size) and fill rate (sustained rate). A client with a full bucket can fire a burst of up to `burst` at once, then settle into `rate` per second. This is the most popular shape because the two dials decouple "how hard may they spike" from "what may they sustain," and because it smooths drift gracefully; a short burst is soaked without a window-boundary cliff.
 
 ```java
 public class TokenBucket {

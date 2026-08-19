@@ -22,7 +22,7 @@ That is the standard failure and it is not a technical one. Nobody skipped codin
 
 Design thinking runs five phases in a loop. They are commonly named empathize, define, ideate, prototype, test. The names come from product design and translate awkwardly to software, but the translation is worth making because each maps to a concrete software activity.
 
-Emphasizing means understanding who uses the thing and what they actually do. In software terms, this is talking to the people who will run your system, the API clients, the operators, the downstream consumers, and reading the traces of their behavior instead of guessing. Defining means stating the problem you are actually solving in a sentence that someone could disagree with. Ideating is generating candidate designs without judging them yet. Prototyping is building the cheapest thing that tests a design assumption, a spike, a throwaway, a skeleton. Testing is checking the prototype against real conditions and real feedback, then looping.
+Empathizing means understanding who uses the thing and what they actually do. In software terms, this is talking to the people who will run your system, the API clients, the operators, the downstream consumers, and reading the traces of their behavior instead of guessing. Defining means stating the problem you are actually solving in a sentence that someone could disagree with. Ideating is generating candidate designs without judging them yet. Prototyping is building the cheapest thing that tests a design assumption, a spike, a throwaway, a skeleton. Testing is checking the prototype against real conditions and real feedback, then looping.
 
 Phase | Question it answers | Software version
 --- | --- | ---

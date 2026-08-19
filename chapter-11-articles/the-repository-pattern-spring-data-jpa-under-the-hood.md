@@ -119,4 +119,4 @@ The obvious follow-up question after meeting the repository is whether it's the 
 
 ---
 
-This article explains that repository is a contract for a framework-generated proxy and that Save clones the persistence context rather than SQL writes. It argues that reading a repository method like the query it emits is what keeps Spring Data from becoming a black box.
+This article explains that a repository is a contract for a framework-generated proxy and that `save()` registers entities with the persistence context rather than writing SQL immediately. It argues that reading a repository method like the query it emits is what keeps Spring Data from becoming a black box.

@@ -38,7 +38,7 @@ public void sendPush(User user, PushTemplate template) {
 
 Three methods, the same send loop copy-pasted three times. Now a requirement lands: add a retry on failed delivery. That change goes to three methods, and last time someone added a retry they only edited two. The ordering, "render, deliver, log," is expressed once per concrete class, so the sequence means three slightly different things and there is no single place that states it once.
 
-That is the failure: the algorithm's order is duplicated, and every change must be replayed everywhere. The ordering is the part that never varies, yet it is the part copy- written the most.
+That is the failure: the algorithm's order is duplicated, and every change must be replayed everywhere. The ordering is the part that never varies, yet it is the part most copy-pasted.
 
 ## Core Concept
 

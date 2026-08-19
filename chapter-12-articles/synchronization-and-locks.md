@@ -42,7 +42,7 @@ A method-wide lock is simple but lazy: it holds the monitor while doing work tha
 
 ## Real Production Usage
 
-The bank account is one of the hottest `synchronized` patterns, but in production it is often the wrong tool for the designers. Serializing on a single counter or a map update is fine. Locking a database read is not, because the database has its own control. In real services, `synchronized` shows up inside small primitives and concurrent collections, and the higher layers use `ConcurrentHashMap` and `Atomic` classes instead of a big method-wide lock, which keeps throughput high. A good rule: keep the lock short, because the cases that fail you are locks held while a thread waits on the network.
+The bank account is one of the hottest `synchronized` patterns, but in production it is often the wrong tool for the job at hand. Serializing on a single counter or a map update is fine. Locking a database read is not, because the database has its own control. In real services, `synchronized` shows up inside small primitives and concurrent collections, and the higher layers use `ConcurrentHashMap` and `Atomic` classes instead of a big method-wide lock, which keeps throughput high. A good rule: keep the lock short, because the cases that fail you are locks held while a thread waits on the network.
 
 ## Common Mistakes
 

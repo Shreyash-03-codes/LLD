@@ -101,7 +101,7 @@ for (Order o : orders) {
 
 The key is double dispatch, and it is worth seeing clearly. In a normal polymorphic call, `order.price()`, one virtual call picks the method by the runtime type of the receiver. Visitor needs two types to line up: the element type and the visitor type.
 
-The first dispatch happens in the loop: `o.accept(pricing)` calls the concrete element's `accept`, so `GiftCard.accept` runs for a gift card. The second dispatch happens inside that `accept`: `visitor.visitGiftCard(this)`, where `this` has the concrete element type, picks the correct overload. The element chooses the visitor, and the visitor chooses the element type. Two virtual calls, and neither side ever does a cast.
+The first dispatch happens in the loop: `o.accept(pricing)` calls the concrete element's `accept`, so `GiftCard.accept` runs for a gift card. The second dispatch happens inside that `accept`: `visitor.price(this)`, where `this` has the concrete element type, picks the correct overload. The element chooses the visitor, and the visitor chooses the element type. Two virtual calls, and neither side ever does a cast.
 
 That is why the pattern is called Visitor and not "instanceof mover": the type dispatch that the direct approach spreads across the codebase is centralized into one per-class `accept` method.
 
@@ -109,7 +109,7 @@ That is why the pattern is called Visitor and not "instanceof mover": the type d
 
 The trade is honest, so it deserves its own section. Adding a new operation is free, one visitor class. But adding a new element type is expensive: a new `visit` method in every existing visitor, and an `accept` in the new class. The pattern fits a hierarchy that is stable and operations that grow. It fights a hierarchy that grows, because every new type breaks every visitor.
 
-The pattern also pushes the element's internals to the visitor. `visitGiftCard` reads `card.balance()`, which means the card exposes enough state for the visitor to work. That is the same coupling the operation methods had, just relocated, and a visitor that needs many private fields ends up forcing the element to expose them.
+The pattern also pushes the element's internals to the visitor. `price(GiftCard)` reads `card.balance()`, which means the card exposes enough state for the visitor to work. That is the same coupling the operation methods had, just relocated, and a visitor that needs many private fields ends up forcing the element to expose them.
 
 ### The siblings
 

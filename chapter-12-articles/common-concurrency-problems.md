@@ -51,7 +51,7 @@ In real services a deadlock shows up as a thread dump where a pool spins and a r
 
 ## Interview Perspective
 
-The deadlock question is a classic because it needs both the fixed order. The strong answer names the four conditions, breaks one, and jumps the rest. Follow-up: "what is a deadlock versus a livelock" and "how do you detect one in a running service." The strong answer: a thread dump read and the waits are seen. The habit that closes the interview is locking in one collected order and never opening a second lock while one is held.
+The deadlock question is a classic because the answer needs a single consistent lock order. The strong answer names the four conditions, breaks one, and jumps the rest. Follow-up: "what is a deadlock versus a livelock" and "how do you detect one in a running service." The strong answer: a thread dump read and the waits are seen. The habit that closes the interview is locking in one collected order and never opening a second lock while one is held.
 
 ## Knowledge Check
 

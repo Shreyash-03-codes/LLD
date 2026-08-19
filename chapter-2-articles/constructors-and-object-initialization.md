@@ -51,9 +51,8 @@ Field initialization happens around the constructors, and the order is exact.
 Order | What runs
 --- | ---
 1 | Superclass chain completes first, parent fields then parent constructor body
-2 | Field initializers of this class, in declaration order
-3 | Instance initializer blocks of this class, in order they appear
-4 | This class's constructor body
+2 | Field initializers and instance initializer blocks of this class, interleaved in the order they appear in the source
+3 | This class's constructor body
 
 The field initializers and initializer blocks run before the constructor body, which is why a field with a declared default is already set when the constructor body begins. A constructor assignment then overrides the field initializer. There is a subtlety hidden here: the initializers run after the parent constructor but before the child constructor body, so a method called from the parent's constructor dispatches to the child, and the child's fields are not yet initialized. This is why calling overridable methods from a constructor is a known hazard, discussed further in the inheritance article.
 

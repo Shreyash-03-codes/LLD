@@ -109,7 +109,7 @@ Java collections protect the walk with a contract called fail-fast. The collecti
 
 ```java
 Exception in thread "main" java.util.ConcurrentModificationException
-	at java.base/java.util.ArrayList$Itr.checkType(...)
+	at java.base/java.util.ArrayList$Itr.checkForComodification(...)
 ```
 
 The point is to fail loudly instead of silently walking a collection whose backing array is shifting under the cursor. A silent walk can re-read or skip values, and the bug is subtle. A loud `ConcurrentModificationException` surfaces the mistake the moment it happens. The habits that avoid it, when you want to remove during a walk, are a two-pass approach, a `removeIf` call, or collecting the targets first and deleting them after the walk completes.

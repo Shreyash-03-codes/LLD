@@ -16,9 +16,9 @@ A billing service keeps a `HashMap` of account to pending invoice, and two worke
 
 ## Core Concept
 
-`ConcurrentHashMap` does not lock the whole table for every access. It splits the table into many slots and each thread claims only one at a time, so reads look at whatever the current bucket holds and do not wait. The write updates one and the read, which may be a different one, proceeds. This keeps high throughput, but it changes what you are allowed to assume.
+`ConcurrentHashMap` does not lock the whole table for every access. Since Java 8 it synchronizes per bin and relies on compare-and-set for much of the work, so reads generally do not wait at all. The write updates one bin and a read of a different bin proceeds unblocked. This keeps throughput high, but it changes what you are allowed to assume.
 
-The honest part is the `size()`. Because updates happen in parallel lock short buckets, the count is approximate. There are field-based helpers that encourage the doubt: the `putIfAbsent`, `compute`, and `merge` fold their check and update into one atomic action, so the code never reads the old value and writes it back separately.
+The honest part is the `size()`. Because updates happen in parallel across bins, the count is approximate. There are atomic compound helpers that keep you out of trouble: the `putIfAbsent`, `compute`, and `merge` fold their check and update into one atomic action, so the code never reads the old value and writes it back separately.
 
 ```java
 ConcurrentHashMap<String, Long> byCountry = new ConcurrentHashMap<>();

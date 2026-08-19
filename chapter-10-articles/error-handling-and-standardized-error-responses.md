@@ -29,7 +29,7 @@ A workable envelope:
   "code": "ORDER_ALREADY_PAID",
   "message": "Order 7841 was already paid and cannot be cancelled.",
   "details": ["field=cancelReason problem=requested"],
-  "traceId": "8f2c0e1-3d1c-49ab-bc12-9f00a1c2b1"
+  "traceId": "8f2c0e1d-3d1c-49ab-bc12-9f00a1c2b1"
 }
 ```
 

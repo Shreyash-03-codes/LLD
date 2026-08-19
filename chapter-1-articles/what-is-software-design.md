@@ -30,7 +30,7 @@ Design also has a time dimension that people overlook. A design is not a snapsho
 
 Let a few categories organize your thinking. Structural design is the shape of the codebase, the modules, the layers, the public API. Behavioral design is how pieces coordinate, ordering, retries, timeouts, consistency rules. These two are the bulk of what any engineer, including you, does in a day.
 
-Structural | Functional
+Structural | Behavioral
 --- | ---
 Class and module boundaries | Request and response flow
 Dependency direction | Retry and timeout behavior
